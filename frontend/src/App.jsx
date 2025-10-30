@@ -4,16 +4,9 @@ function App() {
   const [message, setMessage] = useState('Loading...')
 
   useEffect(() => {
-    const apiUrl = import.meta.env.VITE_API_URL || '';
-    console.log('VITE_API_URL environment variable:', import.meta.env.VITE_API_URL)
-    console.log('apiUrl value:', apiUrl)
-    console.log('apiUrl is empty?', apiUrl === '')
-
-    if (!apiUrl) {
-      console.error('VITE_API_URL is not set!')
-      setMessage('Error: VITE_API_URL not configured')
-      return
-    }
+    // Hardcode the backend URL for now to test
+    const apiUrl = 'https://gcp-deploy-test-backend-353177438377.europe-west1.run.app';
+    console.log('Using hardcoded API URL:', apiUrl)
 
     const endpoint = `${apiUrl}/api/hello`;
     console.log('Full endpoint:', endpoint)
