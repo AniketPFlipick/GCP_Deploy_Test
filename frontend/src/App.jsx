@@ -5,10 +5,18 @@ function App() {
 
   useEffect(() => {
     const apiUrl = import.meta.env.VITE_API_URL || '';
+    console.log('VITE_API_URL environment variable:', import.meta.env.VITE_API_URL)
+    console.log('apiUrl value:', apiUrl)
+    console.log('apiUrl is empty?', apiUrl === '')
+
+    if (!apiUrl) {
+      console.error('VITE_API_URL is not set!')
+      setMessage('Error: VITE_API_URL not configured')
+      return
+    }
+
     const endpoint = `${apiUrl}/api/hello`;
-    console.log('API URL from env:', apiUrl)
     console.log('Full endpoint:', endpoint)
-    console.log('Starting fetch to:', endpoint)
 
     // Force fresh request by adding timestamp
     const freshEndpoint = `${endpoint}?t=${Date.now()}`;
