@@ -4,8 +4,10 @@ function App() {
   const [message, setMessage] = useState('Loading...')
 
   useEffect(() => {
-    console.log('Starting fetch to /api/hello')
-    fetch('/api/hello')
+    const apiUrl = import.meta.env.VITE_API_URL || '';
+    const endpoint = `${apiUrl}/api/hello`;
+    console.log('Starting fetch to:', endpoint)
+    fetch(endpoint)
       .then(response => {
         console.log('Response received:', response)
         console.log('Response status:', response.status)
