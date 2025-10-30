@@ -14,9 +14,9 @@ function App() {
   }, [])
 
   return (
-    <div style={{ 
-      fontFamily: 'Arial, sans-serif', 
-      textAlign: 'center', 
+    <div style={{
+      fontFamily: 'Arial, sans-serif',
+      textAlign: 'center',
       marginTop: '100px',
       fontSize: '24px'
     }}>
