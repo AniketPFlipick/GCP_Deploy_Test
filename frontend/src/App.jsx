@@ -4,9 +4,18 @@ function App() {
   const [message, setMessage] = useState('Loading...')
 
   useEffect(() => {
+    console.log('Starting fetch to /api/hello')
     fetch('/api/hello')
-      .then(response => response.text())
-      .then(data => setMessage(data))
+      .then(response => {
+        console.log('Response received:', response)
+        console.log('Response status:', response.status)
+        console.log('Response headers:', response.headers)
+        return response.text()
+      })
+      .then(data => {
+        console.log('Data received:', data)
+        setMessage(data)
+      })
       .catch(error => {
         console.error('Error:', error)
         setMessage('Error loading data')

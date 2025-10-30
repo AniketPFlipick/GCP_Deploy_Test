@@ -10,6 +10,7 @@ public class HomeController : ControllerBase
     [Route("hello")]
     public IActionResult Hello()
     {
+        Console.WriteLine($"API called: /api/hello from {HttpContext.Connection.RemoteIpAddress}");
         return Ok("Hello World from API!");
     }
 }
